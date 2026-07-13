@@ -5,7 +5,6 @@ import LoadingScreen from './components/LoadingScreen';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import About from './components/About';
-import TechStack from './components/TechStack';
 import Projects from './components/Projects';
 import FAQ from './components/FAQ';
 import Contact from './components/Contact';
@@ -75,23 +74,20 @@ export default function App() {
         <main className="relative z-10 w-full">
           <Hero />
 
-          <SectionDivider delay={0} />
+          <SectionDivider delay={0.1} />
 
           <About />
 
           <SectionDivider delay={1.5} />
 
-          <TechStack />
-
-          <SectionDivider delay={3.0} />
 
           <Projects />
 
-          <SectionDivider delay={4.5} />
+          <SectionDivider delay={3.0} />
 
           <FAQ />
 
-          <SectionDivider delay={6.0} />
+          <SectionDivider delay={4.5} />
 
           <Contact />
         </main>

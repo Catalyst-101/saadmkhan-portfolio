@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react';
+import img from "../assets/images/img.jfif";
+import resume from "../assets/resume.pdf";
 import { motion } from 'framer-motion';
 
 export default function Hero() {
@@ -11,14 +13,14 @@ export default function Hero() {
     "MERN Stack Developer",
     "Flutter Developer",
     "AI Enthusiast",
-    "Computer Science Student"
+    "Computer Science Student @ NUST"
   ];
 
   // Typing effect loop
   useEffect(() => {
     let timer;
     const currentWord = words[wordIndex];
-    
+
     if (isDeleting) {
       timer = setTimeout(() => {
         setTypedText(currentWord.substring(0, typedText.length - 1));
@@ -60,7 +62,7 @@ export default function Hero() {
         className="flex-1 max-w-2xl text-left"
       >
         <span className="inline-block font-label-sm text-xs md:text-sm text-tertiary mb-3 tracking-[0.2em] uppercase select-none">
-          Architecting Intelligence
+          Driven by Curiosity, Powered by Code
         </span>
         <h1 className="font-headline-xl text-4xl md:text-6xl mb-4 leading-tight font-bold tracking-tight text-on-surface">
           Hi, I'm <br />
@@ -75,8 +77,7 @@ export default function Hero() {
           </span>
         </div>
         <p className="text-on-surface-variant/80 text-sm md:text-base mb-8 leading-relaxed max-w-lg">
-          Full-stack visionary specializing in high-performance distributed systems, AI-driven architectures,
-          and immersive digital experiences.
+          Full-stack developer passionate about building modern web apps, mobile applications, and AI-powered solutions.
         </p>
         <div className="flex flex-wrap gap-4">
           <a
@@ -89,7 +90,8 @@ export default function Hero() {
             <span className="absolute top-0 left-[-60%] w-[40%] h-full bg-gradient-to-r from-transparent via-white/30 to-transparent skew-x-[-20deg] group-hover:left-[130%] transition-all duration-700 ease-out" />
           </a>
           <a
-            href="#"
+            href={resume}
+            download="Saad_Muhammad_Khan_Resume.pdf"
             className="px-8 py-4 bg-white/5 backdrop-blur-md text-on-surface font-bold rounded-xl hover:bg-white/10 transition-all border border-white/10 flex items-center gap-2 hover:scale-[1.03] hover:shadow-[0_0_25px_rgba(255,255,255,0.08)] transition-transform duration-300"
           >
             Download Resume
@@ -119,7 +121,7 @@ export default function Hero() {
         >
           {/* Orbit glowing circles */}
           <div className="absolute inset-0 rounded-full border border-primary/20 shadow-[0_0_30px_rgba(56,189,248,0.15)] animate-pulse" />
-          
+
           <motion.div
             animate={{ rotate: 360 }}
             transition={{ duration: 25, repeat: Infinity, ease: 'linear' }}
@@ -130,14 +132,14 @@ export default function Hero() {
           <div className="absolute inset-8 rounded-full overflow-hidden border-4 border-white/10 bg-surface-variant shadow-2xl flex items-center justify-center">
             <img
               alt="Saad Muhammad Khan"
-              className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700 scale-105 hover:scale-110"
-              src="https://lh3.googleusercontent.com/aida-public/AB6AXuBL8LNbzGInvvYRBGOTrF0cI8g4R_4OzC55V9F8z4splDPikYE1o9D9i0b_bfM-bi6i242Y88WGXH8UtAC7TV-aznlu8_LXq9uiODVBj1j161IGT21a7EMCziytvftwY7AcSdJv_SqEC4A8vgBbtJM7B9x37E9Fty2qJXlNqYQccuVqvIoKL-LynFXHeMGF02G5POJPpuVHs9QZZ3Ap1YqoMFtC37vFAuFA9TltvQTnosYaNtTY1siTU_DqOTPLrMH3mTsPFI5RW8Rt"
+              className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700 hover:scale-105"
+              src={img}
             />
           </div>
 
           {/* Pulsing visual ring overlays */}
           <div className="absolute inset-0 rounded-full border border-primary/40 animate-ping opacity-20 pointer-events-none" style={{ animationDuration: '3s' }} />
-          
+
           {/* Satellites orbiting */}
           <motion.div
             animate={{ rotate: 360 }}
