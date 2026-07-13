@@ -23,7 +23,7 @@ export default function Footer() {
 
   return (
     <footer className="mt-24 border-t border-white/5 bg-[#000103] py-12 relative z-20 overflow-hidden">
-      
+
       {/* Decorative Space Scene Backdrops */}
       <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
         {/* Soft Purple/Blue Nebula glow */}
@@ -45,71 +45,17 @@ export default function Footer() {
         ))}
       </div>
 
-      <div className="max-w-[1280px] mx-auto px-6 md:px-16 flex flex-col md:flex-row justify-between items-center gap-8 relative z-10">
-        
+      <div className="max-w-[1280px] mx-auto px-6 md:px-16 flex flex-col md:flex-row justify-center items-center gap-8 relative z-10">
+
         {/* Left Side: Brand Logo and Copyright */}
-        <div className="text-center md:text-left">
-          <p className="font-headline-md text-xl font-bold tracking-tighter text-primary">
-            Saad Muhammad Khan
+        <div className="text-center justify-center items-center">
+          <p className="font-headline-md text-5xl font-bold tracking-tighter text-primary">
+            SAAD MUHAMMAD KHAN
           </p>
-          <p className="text-xs text-on-surface-variant/60 mt-1.5 font-medium">
-            &copy; {new Date().getFullYear()} Engineering Portfolio. All rights reserved.
+          <p className="text-sm text-on-surface-variant/60 mt-1.5 font-medium">
+            &copy; {new Date().getFullYear()} Personal Portfolio. All rights reserved.
           </p>
         </div>
-
-        {/* Center: Social Links */}
-        <div className="flex flex-wrap justify-center gap-6 md:gap-8">
-          <a
-            href="https://github.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-xs font-semibold uppercase tracking-wider text-on-surface-variant hover:text-primary transition-colors duration-300 flex items-center gap-1.5"
-          >
-            <span className="material-symbols-outlined text-[16px]">link</span>
-            GitHub
-          </a>
-          <a
-            href="https://linkedin.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-xs font-semibold uppercase tracking-wider text-on-surface-variant hover:text-secondary transition-colors duration-300 flex items-center gap-1.5"
-          >
-            <span className="material-symbols-outlined text-[16px]">person</span>
-            LinkedIn
-          </a>
-          <a
-            href="https://instagram.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-xs font-semibold uppercase tracking-wider text-on-surface-variant hover:text-pink-400 transition-colors duration-300 flex items-center gap-1.5"
-          >
-            <span className="material-symbols-outlined text-[16px]">photo_camera</span>
-            Instagram
-          </a>
-          <a
-            href="#contact"
-            onClick={(e) => {
-              e.preventDefault();
-              document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
-            }}
-            className="text-xs font-semibold uppercase tracking-wider text-on-surface-variant hover:text-primary transition-colors duration-300"
-          >
-            Contact
-          </a>
-        </div>
-
-        {/* Right Side: Back to Top */}
-        <button
-          onClick={handleBackToTop}
-          className="flex items-center gap-2 px-5 py-2.5 rounded-full bg-white/5 border border-white/5 hover:border-primary/25 hover:bg-[#0a0f1d]/50 text-xs font-bold uppercase tracking-wider text-on-surface-variant hover:text-primary transition-all duration-300 group"
-          id="back-to-top"
-          aria-label="Scroll back to top"
-        >
-          <span className="material-symbols-outlined text-sm transition-transform duration-300 group-hover:-translate-y-1">
-            rocket_launch
-          </span>
-          Back to top
-        </button>
       </div>
     </footer>
   );
