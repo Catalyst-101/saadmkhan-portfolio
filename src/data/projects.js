@@ -20,26 +20,28 @@ export const projects = [
 
     {
         id: 2,
-        title: "BankChain - Modular Blockchain Banking System",
+        title: "SportScope - Sports Analytics Platform",
         description:
-            "A decentralized banking platform powered by Ethereum smart contracts, enabling secure deposits, withdrawals, fund transfers, loan management, and card services. Developed the React frontend and integrated Ethers.js for seamless wallet connectivity and real-time blockchain interactions.",
-        image: "./src/assets/images/bankchain.png",
-        badge: "Blockchain",
+            "A full-stack MERN sports analytics platform featuring interactive dashboards, player and match statistics, performance comparisons, and RESTful APIs for analyzing over 17,000 sports records.",
+        image: "./src/assets/images/sportscope.png",
+        badge: "Full Stack",
         tags: [
             "React",
-            "Ethers.js",
-            "Solidity",
-            "Hardhat",
-            "OpenZeppelin",
-            "Ethereum",
-            "Web Development",
-            "Other",
-            "Blockchain",
-            "Cybersecuity",
-            "Information Security"
+            "Node.js",
+            "Express.js",
+            "MongoDB",
+            "REST API",
+            "Postman",
+            "JavaScript",
+            "Analytics",
+            "Data Visualization",
+            "Dashboard",
+            "MERN Stack",
+            "Full Stack",
+            "Web Development"
         ],
         github: "https://github.com/Catalyst-101",
-        demo: "https://www.linkedin.com/in/smk-cs24/details/projects/"
+        demo: "https://sportscope-one.vercel.app/"
     },
 
     {
@@ -63,7 +65,7 @@ export const projects = [
             "Multilingual AI",
             "Natural Language Processing",
             "AI",
-            "Data Science"
+            "Data Science",
         ],
         github: "https://github.com/Catalyst-101",
         demo: "https://www.linkedin.com/posts/smk-cs24_im-excited-to-present-my-semester-project-ugcPost-7406676586164436992-9Y-P/?utm_source=share&utm_medium=member_desktop&rcm=ACoAAD4LRc4BIeLCbsTx63w6ZBAJlXzyngA3UAE"
@@ -93,7 +95,8 @@ export const projects = [
             "Merge Algorithms",
             "Branch Management",
             "Object-Oriented Programming",
-            "Desktop Development"
+            "Desktop Development",
+            "Other"
         ],
         github: "https://github.com/Catalyst-101",
         demo: "https://www.linkedin.com/in/smk-cs24/details/projects/"
@@ -145,7 +148,7 @@ export const projects = [
             "Frontend",
             "Portfolio",
             "Animations",
-            "Material Design"
+            "Material Design",
         ],
         github: "https://github.com/Catalyst-101",
         demo: "https://khanbhai-sk.vercel.app/"
@@ -153,32 +156,31 @@ export const projects = [
 
     {
         id: 7,
-        title: "SportScope - Sports Analytics Platform",
+        title: "BankChain - Modular Blockchain Banking System",
         description:
-            "A full-stack MERN sports analytics platform featuring interactive dashboards, player and match statistics, performance comparisons, and RESTful APIs for analyzing over 17,000 sports records.",
-        image: "./src/assets/images/sportscope.png",
-        badge: "Full Stack",
+            "A decentralized banking platform powered by Ethereum smart contracts, enabling secure deposits, withdrawals, fund transfers, loan management, and card services. Developed the React frontend and integrated Ethers.js for seamless wallet connectivity and real-time blockchain interactions.",
+        image: "./src/assets/images/bankchain.png",
+        badge: "Blockchain",
         tags: [
             "React",
-            "Node.js",
-            "Express.js",
-            "MongoDB",
-            "REST API",
-            "Postman",
-            "JavaScript",
-            "Analytics",
-            "Data Visualization",
-            "Dashboard",
-            "MERN Stack",
-            "Full Stack"
+            "Ethers.js",
+            "Solidity",
+            "Hardhat",
+            "OpenZeppelin",
+            "Ethereum",
+            "Web Development",
+            "Other",
+            "Blockchain",
+            "Cybersecuity",
+            "Information Security"
         ],
-        github: "https://github.com/Catalyst-101",
-        demo: "https://sportscope-one.vercel.app/"
+        github: "https://github.com/M-Kaif-Malik/bankchain-frontend",
+        demo: "https://www.linkedin.com/in/smk-cs24/details/projects/"
     },
 
     {
         id: 8,
-        title: "StayEase – Hostel Management System",
+        title: "StayEase - Hostel Management System",
         description:
             "A JavaFX desktop application that digitizes hostel operations, including student registration, room allocation, staff management, complaints, and payment tracking using a MySQL database.",
         image: "./src/assets/images/stayease.png",
@@ -193,15 +195,16 @@ export const projects = [
             "SQL",
             "Database",
             "Desktop Development",
-            "OOP"
+            "OOP",
+            "Other"
         ],
-        github: "#",
-        demo: "#"
+        github: "https://github.com/Catalyst-101",
+        demo: "https://www.linkedin.com/posts/smk-cs24_stayease-hostel-management-system-semester-ugcPost-7357675748616265729-Pyiv/?utm_source=share&utm_medium=member_desktop&rcm=ACoAAD4LRc4BIeLCbsTx63w6ZBAJlXzyngA3UAE"
     },
 
     {
         id: 9,
-        title: "WardEase – Hospital Ward Management System",
+        title: "WardEase - Hospital Ward Management System",
         description:
             "An Android application that streamlines hospital operations with role-based portals for administrators, doctors, nurses, receptionists, and patients using Firebase as the backend.",
         image: "./src/assets/images/wardease.png",
@@ -215,10 +218,11 @@ export const projects = [
             "NoSQL",
             "Hospital Management",
             "Authentication",
-            "Realtime Database"
+            "Realtime Database",
+            "App Development"
         ],
-        github: "#",
-        demo: "#"
+        github: "https://github.com/Catalyst-101",
+        demo: "https://www.linkedin.com/in/smk-cs24/details/projects/"
     },
 
     {
@@ -236,10 +240,11 @@ export const projects = [
             "Game AI",
             "Collision Detection",
             "Data Structures",
-            "Desktop Application"
+            "Desktop Application",
+            "Game Development"
         ],
-        github: "https://github.com/Catalyst-101/BattleTanks",
-        demo: "#"
+        github: "https://github.com/Catalyst-101",
+        demo: "https://www.linkedin.com/posts/smk-cs24_battletanks-is-a-survival-style-game-developed-ugcPost-7357656169500262400-KOuE/?utm_source=share&utm_medium=member_desktop&rcm=ACoAAD4LRc4BIeLCbsTx63w6ZBAJlXzyngA3UAE"
     },
 
     {
@@ -247,7 +252,7 @@ export const projects = [
         title: "Dental Clinic Website & Admin Management System",
         description:
             "A full-stack MERN application featuring a modern clinic website and secure admin dashboard for appointment booking, patient management, doctor scheduling, and website content management.",
-        image: "./src/assets/images/dental-clinic.png",
+        image: "./src/assets/images/sami.png",
         badge: "MERN Stack",
         tags: [
             "React",
@@ -261,11 +266,11 @@ export const projects = [
             "Tailwind CSS",
             "MERN Stack",
             "Full Stack",
-            "CRUD"
+            "CRUD",
+            "Web Development"
         ],
-        github: "#",
+        github: "https://github.com/Catalyst-101",
         demo: "https://dentalelite.vercel.app/"
     },
-
 
 ]

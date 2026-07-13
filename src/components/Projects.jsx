@@ -1,14 +1,16 @@
-import React, { useState, useRef } from 'react';
-import { motion } from 'framer-motion';
+import React, { useState, useRef, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { projects } from '../data/projects';
-
 
 export default function Projects() {
   const [activeFilter, setActiveFilter] = useState('All');
   const [searchQuery, setSearchQuery] = useState('');
+  const [currentPage, setCurrentPage] = useState(1);
 
   const categories = ['All', 'Web Development', 'App Development', 'Game Development', 'AI', 'Other'];
+  const itemsPerPage = 4;
 
+  // Filter projects based on category and search query
   const filteredProjects = projects.filter((project) => {
     const matchesCategory =
       activeFilter === 'All' || project.tags.includes(activeFilter);
@@ -17,6 +19,24 @@ export default function Projects() {
       project.description.toLowerCase().includes(searchQuery.toLowerCase());
     return matchesCategory && matchesSearch;
   });
+
+  // Reset pagination to first page whenever filters or search criteria change
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [activeFilter, searchQuery]);
+
+  // Pagination Math
+  const totalPages = Math.ceil(filteredProjects.length / itemsPerPage);
+  const startIndex = (currentPage - 1) * itemsPerPage;
+  const displayedProjects = filteredProjects.slice(startIndex, startIndex + itemsPerPage);
+
+  const handlePrevPage = () => {
+    if (currentPage > 1) setCurrentPage((prev) => prev - 1);
+  };
+
+  const handleNextPage = () => {
+    if (currentPage < totalPages) setCurrentPage((prev) => prev + 1);
+  };
 
   // 3D tilt hover handler for each card
   const Card = ({ project }) => {
@@ -47,7 +67,7 @@ export default function Projects() {
         ref={cardRef}
         onMouseMove={handleMouseMove}
         onMouseLeave={handleMouseLeave}
-        className="project-card bg-[#0a0f1d]/50 backdrop-blur-xl border border-white/5 group rounded-3xl overflow-hidden flex flex-col transition-all duration-300 hover:border-primary/30 relative"
+        className="project-card bg-[#0a0f1d]/50 backdrop-blur-xl border border-white/5 group rounded-3xl overflow-hidden flex flex-col transition-all duration-300 hover:border-primary/30 relative h-full"
         style={{
           boxShadow: '0 10px 30px -10px rgba(0,0,0,0.5)',
           transformStyle: 'preserve-3d'
@@ -61,16 +81,18 @@ export default function Projects() {
           }}
         />
 
-        {/* Card Image */}
+        {/* Card Image - Starts grey, switches to color on hover */}
         <div className="h-60 md:h-64 overflow-hidden relative">
           <img
-            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+            className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-105"
             src={project.image}
             alt={project.title}
           />
           <div className="absolute inset-0 bg-gradient-to-t from-[#01030a] via-transparent to-transparent opacity-90" />
+
+          {/* Secondary Badge placement */}
           <div className="absolute top-4 right-4">
-            <span className="px-3.5 py-1 rounded-lg bg-primary/20 text-primary text-[10px] font-bold uppercase tracking-wider backdrop-blur-md border border-primary/25">
+            <span className="px-3.5 py-1 rounded-lg bg-secondary/20 text-secondary text-[10px] font-bold uppercase tracking-wider backdrop-blur-md border border-secondary/25">
               {project.badge}
             </span>
           </div>
@@ -86,7 +108,7 @@ export default function Projects() {
           </p>
 
           {/* Action links */}
-          <div className="flex gap-6 pt-5 border-t border-white/5">
+          <div className="flex gap-6 pt-5 border-t border-white/5 mt-auto">
             <a
               href={project.github}
               target="_blank"
@@ -111,11 +133,45 @@ export default function Projects() {
 
   return (
     <section id="projects" className="py-24 max-w-[1280px] mx-auto px-6 md:px-16">
-      {/* Header and Filter Controls */}
+      {/* Header Layout containing Title and Pagination buttons */}
       <div className="mb-12">
-        <h2 className="font-headline-lg text-3xl md:text-4xl font-bold text-on-surface mb-4">
-          My <span className="bg-gradient-to-r from-primary to-cyan-400 bg-clip-text text-transparent">Projects</span>
-        </h2>
+        <div className="flex justify-between items-center mb-4">
+          <h2 className="font-headline-lg text-3xl md:text-4xl font-bold text-on-surface">
+            My <span className="bg-gradient-to-r from-primary to-cyan-400 bg-clip-text text-transparent">Projects</span>
+          </h2>
+
+          {/* Top Right Pagination Controls */}
+          {totalPages > 1 && (
+            <div className="flex items-center gap-2">
+              <button
+                onClick={handlePrevPage}
+                disabled={currentPage === 1}
+                className={`p-2.5 rounded-xl border backdrop-blur-md transition-all duration-300 ${currentPage === 1
+                    ? 'border-white/5 text-on-surface-variant/20 cursor-not-allowed'
+                    : 'border-white/5 bg-[#0a0f1d]/40 text-on-surface-variant hover:text-on-surface hover:border-white/10 active:scale-95'
+                  }`}
+                aria-label="Previous Page"
+              >
+                <span className="material-symbols-outlined block text-[20px]">chevron_left</span>
+              </button>
+              <span className="text-xs font-bold tracking-wider text-on-surface-variant/60 px-2 select-none">
+                {currentPage} / {totalPages}
+              </span>
+              <button
+                onClick={handleNextPage}
+                disabled={currentPage === totalPages}
+                className={`p-2.5 rounded-xl border backdrop-blur-md transition-all duration-300 ${currentPage === totalPages
+                    ? 'border-white/5 text-on-surface-variant/20 cursor-not-allowed'
+                    : 'border-white/5 bg-[#0a0f1d]/40 text-on-surface-variant hover:text-on-surface hover:border-white/10 active:scale-95'
+                  }`}
+                aria-label="Next Page"
+              >
+                <span className="material-symbols-outlined block text-[20px]">chevron_right</span>
+              </button>
+            </div>
+          )}
+        </div>
+
         <p className="text-on-surface-variant max-w-xl mb-8 text-base">
           A collection of web applications, full-stack solutions, and creative digital experiences built with modern technologies
         </p>
@@ -128,8 +184,8 @@ export default function Projects() {
                 key={cat}
                 onClick={() => setActiveFilter(cat)}
                 className={`px-5 py-2 rounded-xl text-xs font-bold uppercase tracking-wider transition-all duration-300 ${activeFilter === cat
-                  ? 'bg-primary text-on-primary shadow-lg shadow-primary/20 hover:scale-[1.02]'
-                  : 'bg-[#0a0f1d]/40 backdrop-blur-md border border-white/5 text-on-surface-variant hover:text-on-surface hover:border-white/10'
+                    ? 'bg-primary text-on-primary shadow-lg shadow-primary/20 hover:scale-[1.02]'
+                    : 'bg-[#0a0f1d]/40 backdrop-blur-md border border-white/5 text-on-surface-variant hover:text-on-surface hover:border-white/10'
                   }`}
               >
                 {cat}
@@ -153,21 +209,38 @@ export default function Projects() {
         </div>
       </div>
 
-      {/* Grid of Projects */}
-      {filteredProjects.length > 0 ? (
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {filteredProjects.map((project) => (
-            <Card key={project.id} project={project} />
-          ))}
-        </div>
-      ) : (
-        <div className="text-center py-16 rounded-3xl bg-[#0a0f1d]/30 border border-white/5">
-          <span className="material-symbols-outlined text-4xl text-on-surface-variant/40 mb-3">
-            folder_off
-          </span>
-          <p className="text-on-surface-variant">No matching projects found.</p>
-        </div>
-      )}
+      {/* Grid of Projects with Smooth Animated Transitions */}
+      <motion.div layout className="relative min-h-[400px]">
+        <AnimatePresence mode="wait">
+          {displayedProjects.length > 0 ? (
+            <motion.div
+              key={`${activeFilter}-${searchQuery}-${currentPage}`}
+              initial={{ opacity: 0, y: 15 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -15 }}
+              transition={{ duration: 0.35, ease: 'easeInOut' }}
+              className="grid grid-cols-1 md:grid-cols-2 gap-8"
+            >
+              {displayedProjects.map((project) => (
+                <Card key={project.id} project={project} />
+              ))}
+            </motion.div>
+          ) : (
+            <motion.div
+              key="empty"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              className="text-center py-16 rounded-3xl bg-[#0a0f1d]/30 border border-white/5"
+            >
+              <span className="material-symbols-outlined text-4xl text-on-surface-variant/40 mb-3">
+                folder_off
+              </span>
+              <p className="text-on-surface-variant">No matching projects found.</p>
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </motion.div>
     </section>
   );
 }
