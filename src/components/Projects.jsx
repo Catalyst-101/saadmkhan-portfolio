@@ -1,34 +1,13 @@
 import React, { useState, useRef } from 'react';
 import { motion } from 'framer-motion';
+import { projects } from '../data/projects';
+
 
 export default function Projects() {
   const [activeFilter, setActiveFilter] = useState('All');
   const [searchQuery, setSearchQuery] = useState('');
 
-  const projects = [
-    {
-      id: 1,
-      title: 'Neural Market Predictor',
-      description: 'Real-time financial forecasting using Transformer architectures with a custom React visualization engine.',
-      image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuCfmuNPt57E2CjZUsZTYVjkQ8f4Zzv862EAidwYt9LhREDAvdxYntg_3vrTaopfzJUDyvJtB-a0DCAwFAPDm5o0geSyFeiFr8QhS8sz8K9xMJrv09rwbnW93TdOJKKW_cl_Wh6coeXV3XVitHyQ5DDZ-mBgizLtob6DP-Mq1FpullSSFfwiEy9xSp1DEE2HMI8H6-RHtUPUO9kvJ124V2XCZUF_ib0KvCixIntb_mgFvJmeLsQuOfjHbOiusDMpUjrKlGj-pT4E1Fg-',
-      badge: 'AI Integration',
-      tags: ['AI', 'Machine Learning', 'React'],
-      github: '#',
-      demo: '#'
-    },
-    {
-      id: 2,
-      title: 'Cloud-Native Grid',
-      description: 'A high-throughput orchestration layer for distributed computing clusters built with Go and Kubernetes.',
-      image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuCRLAiHGpNtTjHGhGOlHAyShdKREQIOISrEJFVQSBl6grOji2T2Bd2sRSwBlYbsXpbug5hj6AqpOGyZBNEPAKfytnCozZx36PDqI1VfLOaWe3ejY19xmjfTqxZ8MdCH8eoT_Rx8IfC0-iDhU3DcKMaP7VlZodYBIfcgfoQHZXMXzdJvSFvqKE4XTd4coqTwTA46T4CsBxrMPMJ5b2ghvKacIPUMDLJiGh_564cblT1-r7RZ4yDYW0aC1neSWhrXt8tohSUZAKInyMvg',
-      badge: 'Cloud-Native',
-      tags: ['Web Development', 'Go', 'Kubernetes'],
-      github: '#',
-      demo: '#'
-    }
-  ];
-
-  const categories = ['All', 'Web Development', 'Machine Learning', 'AI'];
+  const categories = ['All', 'Web Development', 'App Development', 'Game Development', 'AI', 'Other'];
 
   const filteredProjects = projects.filter((project) => {
     const matchesCategory =
@@ -51,7 +30,7 @@ export default function Projects() {
       const y = (e.clientY - rect.top) / rect.height; // 0 to 1
       const rotX = (y - 0.5) * -6; // Max rotation X degrees
       const rotY = (x - 0.5) * 8;  // Max rotation Y degrees
-      
+
       card.style.transform = `perspective(1000px) rotateX(${rotX}deg) rotateY(${rotY}deg) translateY(-6px)`;
       card.style.setProperty('--sheen-x', `${x * 100}%`);
       card.style.setProperty('--sheen-y', `${y * 100}%`);
@@ -135,10 +114,10 @@ export default function Projects() {
       {/* Header and Filter Controls */}
       <div className="mb-12">
         <h2 className="font-headline-lg text-3xl md:text-4xl font-bold text-on-surface mb-4">
-          Selected <span className="bg-gradient-to-r from-primary to-cyan-400 bg-clip-text text-transparent">Works</span>
+          My <span className="bg-gradient-to-r from-primary to-cyan-400 bg-clip-text text-transparent">Projects</span>
         </h2>
         <p className="text-on-surface-variant max-w-xl mb-8 text-base">
-          Architecting digital experiences through precise engineering and data-driven insights.
+          A collection of web applications, full-stack solutions, and creative digital experiences built with modern technologies
         </p>
 
         {/* Filter Categories & Search */}
@@ -148,11 +127,10 @@ export default function Projects() {
               <button
                 key={cat}
                 onClick={() => setActiveFilter(cat)}
-                className={`px-5 py-2 rounded-xl text-xs font-bold uppercase tracking-wider transition-all duration-300 ${
-                  activeFilter === cat
-                    ? 'bg-primary text-on-primary shadow-lg shadow-primary/20 hover:scale-[1.02]'
-                    : 'bg-[#0a0f1d]/40 backdrop-blur-md border border-white/5 text-on-surface-variant hover:text-on-surface hover:border-white/10'
-                }`}
+                className={`px-5 py-2 rounded-xl text-xs font-bold uppercase tracking-wider transition-all duration-300 ${activeFilter === cat
+                  ? 'bg-primary text-on-primary shadow-lg shadow-primary/20 hover:scale-[1.02]'
+                  : 'bg-[#0a0f1d]/40 backdrop-blur-md border border-white/5 text-on-surface-variant hover:text-on-surface hover:border-white/10'
+                  }`}
               >
                 {cat}
               </button>
