@@ -1,0 +1,85 @@
+/* Custom Scrollbar Styles */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #000103;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #38bdf8;
+  border-radius: 9999px;
+  box-shadow: 0 0 10px rgba(56, 189, 248, 0.4);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #7bd0ff;
+  box-shadow: 0 0 15px rgba(123, 208, 255, 0.6);
+}
+
+/* Scrollbar styling for Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #38bdf8 #000103;
+}
+
+/* Global transitions and HTML properties */
+html {
+  scroll-behavior: smooth;
+  background-color: #01030a;
+}
+
+body {
+  margin: 0;
+  background-color: #01030a;
+  color: #f1f5f9;
+  font-family: 'Manrope', system-ui, -apple-system, sans-serif;
+  overflow-x: hidden;
+}
+
+/* Custom Animation Keyframes */
+@keyframes divider-move {
+  0% {
+    left: -15%;
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    left: 115%;
+    opacity: 0;
+  }
+}
+
+.animate-divider-move {
+  animation: divider-move 5.5s linear infinite;
+}
+
+/* Hide scrollbar for elements */
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-none {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+/* Styling for Typing Cursor cursor blinking */
+.typing-cursor {
+  animation: typing-blink 1s step-end infinite;
+}
+
+@keyframes typing-blink {
+  from, to {
+    border-color: transparent;
+  }
+  50% {
+    border-color: #38bdf8;
+  }
+}
