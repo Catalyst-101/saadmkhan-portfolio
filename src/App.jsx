@@ -86,15 +86,15 @@ export default function App() {
 
           <About />
 
-          <SectionDivider d={1.5} />
+          <SectionDivider d={2.5} />
 
           <Projects />
 
-          <SectionDivider d={2} />
+          <SectionDivider d={3.5} />
 
           <FAQ />
 
-          <SectionDivider d={2.5} />
+          <SectionDivider d={4.5} />
 
           <Contact />
         </main>

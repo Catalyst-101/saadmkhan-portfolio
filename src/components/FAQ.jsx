@@ -132,10 +132,6 @@ export default function FAQ() {
               <span className="material-symbols-outlined text-primary">verified</span>
               <p className="text-on-surface-variant">Artificial Intelligence</p>
             </div>
-            <div className="flex items-center gap-3">
-              <span className="material-symbols-outlined text-primary">verified</span>
-              <p className="text-on-surface-variant">Database Design</p>
-            </div>
           </div>
         </motion.div>
 

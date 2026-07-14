@@ -3,6 +3,53 @@ import img from "../assets/images/img.jfif";
 import resume from "../assets/resume.pdf";
 import { motion } from 'framer-motion';
 
+import { SiJavascript, SiMongodb, SiFlutter } from "react-icons/si";
+import { FaReact, FaNodeJs } from "react-icons/fa";
+
+const OrbitIcon = ({
+  children,
+  duration = 12,
+  size = "w-12 h-12",
+  iconSize = "text-2xl",
+  bg = "bg-white/10",
+  border = "border-white/20",
+  shadow = "shadow-[0_0_20px_rgba(255,255,255,0.25)]",
+  position = "-top-5 left-1/2 -translate-x-1/2",
+}) => {
+  return (
+    <motion.div
+      animate={{ rotate: 360 }}
+      transition={{
+        duration,
+        repeat: Infinity,
+        ease: "linear",
+      }}
+      className="absolute inset-0 pointer-events-none"
+    >
+      <div className={`absolute ${position}`}>
+        <motion.div
+          animate={{ rotate: -360 }}
+          transition={{
+            duration,
+            repeat: Infinity,
+            ease: "linear",
+          }}
+          className={`
+            flex items-center justify-center
+            rounded-full backdrop-blur-md
+            border ${border}
+            ${size}
+            ${bg}
+            ${shadow}
+          `}
+        >
+          <div className={iconSize}>{children}</div>
+        </motion.div>
+      </div>
+    </motion.div>
+  );
+};
+
 export default function Hero() {
   const [typedText, setTypedText] = useState('');
   const [wordIndex, setWordIndex] = useState(0);
@@ -141,29 +188,54 @@ export default function Hero() {
           <div className="absolute inset-0 rounded-full border border-primary/40 animate-ping opacity-20 pointer-events-none" style={{ animationDuration: '3s' }} />
 
           {/* Satellites orbiting */}
-          <motion.div
-            animate={{ rotate: 360 }}
-            transition={{ duration: 12, repeat: Infinity, ease: 'linear' }}
-            className="absolute inset-0 pointer-events-none"
+          <OrbitIcon
+            duration={15}
+            position="-top-5 left-1/2 -translate-x-1/2"
+            bg="bg-[#F7DF1E]/10"
+            border="border-[#F7DF1E]/30"
+            shadow="shadow-[0_0_20px_rgba(247,223,30,0.35)]"
           >
-            <div className="absolute -top-1 left-1/2 -translate-x-1/2 w-3.5 h-3.5 rounded-full bg-cyan-400 shadow-[0_0_12px_4px_rgba(34,211,238,0.8)]" />
-          </motion.div>
+            <SiJavascript className="text-[#F7DF1E]" />
+          </OrbitIcon>
 
-          <motion.div
-            animate={{ rotate: -360 }}
-            transition={{ duration: 18, repeat: Infinity, ease: 'linear' }}
-            className="absolute inset-0 pointer-events-none"
+          <OrbitIcon
+            duration={15}
+            position="bottom-[18%] -right-1"
+            bg="bg-sky-400/10"
+            border="border-sky-400/30"
+            shadow="shadow-[0_0_20px_rgba(97,218,251,0.35)]"
           >
-            <div className="absolute top-1/2 -right-2 -translate-y-1/2 w-4 h-4 rounded-sm bg-purple-400 shadow-[0_0_12px_3px_rgba(168,85,247,0.7)] rotate-45" />
-          </motion.div>
+            <FaReact className="text-sky-400" />
+          </OrbitIcon>
+
+          <OrbitIcon
+            duration={15}
+            position="bottom-[18%] -left-1"
+            bg="bg-green-500/10"
+            border="border-green-500/30"
+            shadow="shadow-[0_0_20px_rgba(71,162,72,0.35)]"
+          >
+            <SiMongodb className="text-green-500" />
+          </OrbitIcon>
 
           {/* Drifting space dust / flares */}
           <div className="absolute top-[8%] left-[15%] w-8 h-8 rounded-full bg-primary/20 blur-xl animate-pulse" />
           <div className="absolute bottom-[10%] right-[12%] w-10 h-10 rounded-full bg-secondary/20 blur-xl animate-pulse" style={{ animationDelay: '1.5s' }} />
 
           {/* Tiny corner planetoids */}
-          <div className="absolute -top-2 -right-2 w-4 h-4 bg-primary rounded-full blur-[1px] animate-bounce" style={{ animationDuration: '4s' }} />
-          <div className="absolute -bottom-2 -left-2 w-6 h-6 bg-secondary rounded-full blur-[2px] animate-pulse" style={{ animationDuration: '5s' }} />
+          <div
+            className="absolute -top-3 -right-3 flex items-center justify-center w-11 h-11 rounded-full bg-green-500/10 backdrop-blur-md border border-green-500/30 shadow-[0_0_20px_rgba(34,197,94,0.35)] animate-bounce"
+            style={{ animationDuration: "4s" }}
+          >
+            <FaNodeJs className="text-green-500 text-xl" />
+          </div>
+
+          <div
+            className="absolute -bottom-3 -left-3 flex items-center justify-center w-11 h-11 rounded-full bg-sky-400/10 backdrop-blur-md border border-sky-400/30 shadow-[0_0_20px_rgba(2,183,255,0.35)] animate-pulse"
+            style={{ animationDuration: "5s" }}
+          >
+            <SiFlutter className="text-[#46D1FD] text-xl" />
+          </div>
         </motion.div>
       </motion.div>
     </section>
