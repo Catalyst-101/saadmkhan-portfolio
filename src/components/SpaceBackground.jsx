@@ -27,6 +27,30 @@ export default function SpaceBackground() {
       '#e2e8f0'  // Muted light blue
     ];
 
+    // Nebula gas cloud definitions - large soft radial blobs drawn on the
+    // same canvas as the stars so they truly blend (shared blur/composite
+    // pass) instead of sitting on top as separate flat DOM layers.
+  const NEBULA_DEFS = [
+    { color: '56, 189, 248', baseAlpha: 0.02, radiusRatio: 0.55, driftSpeed: 0.012, driftRadius: 60 },
+    { color: '139, 92, 246', baseAlpha: 0.01, radiusRatio: 0.6, driftSpeed: 0.008, driftRadius: 80 },
+    { color: '34, 211, 238', baseAlpha: 0.05, radiusRatio: 0.42, driftSpeed: 0.015, driftRadius: 50 },
+    { color: '56, 189, 248', baseAlpha: 0.025, radiusRatio: 0.85, driftSpeed: 0.007, driftRadius: 110 },
+    { color: '139, 92, 246', baseAlpha: 0.022, radiusRatio: 0.90, driftSpeed: 0.005, driftRadius: 130 },
+    
+  ];
+    let nebulae = [];
+
+    const initNebulae = () => {
+      nebulae = NEBULA_DEFS.map((def, i) => ({
+        ...def,
+        // anchor positions spread across the viewport
+        anchorX: width * [0.18, 0.82, 0.55][i % 3],
+        anchorY: height * [0.22, 0.78, 0.4][i % 3],
+        angle: Math.random() * Math.PI * 2,
+        radius: Math.max(width, height) * def.radiusRatio
+      }));
+    };
+
     // Initialize stars with positions, sizes, opacities, speeds, and zDepth
     const initStars = (initial = false) => {
       stars.length = 0;
@@ -69,6 +93,7 @@ export default function SpaceBackground() {
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
 
       initStars(isInitial);
+      initNebulae();
       isInitial = false;
 
       if (prefersReducedMotion) {
@@ -122,17 +147,45 @@ export default function SpaceBackground() {
     window.addEventListener('scroll', handleScroll, { passive: true });
     window.addEventListener('touchmove', handleTouchMove, { passive: true });
 
-    // Initialize layout and stars
+    // Initialize layout, stars, and nebulae
     resize();
 
     let animationFrameId;
     let lastTime = performance.now();
+
+    // Draw the nebula gas clouds - soft radial gradients blended with
+    // 'lighter' composite so overlapping clouds and stars glow together
+    // instead of layering as opaque shapes.
+    const drawNebulae = (t) => {
+      ctx.save();
+      ctx.globalCompositeOperation = 'lighter';
+
+      for (const n of nebulae) {
+        // Slow orbital drift around the anchor point, gives the clouds life
+        const driftX = Math.cos(n.angle + t * n.driftSpeed) * n.driftRadius;
+        const driftY = Math.sin(n.angle * 0.8 + t * n.driftSpeed) * n.driftRadius;
+        const cx = n.anchorX + driftX;
+        const cy = n.anchorY + driftY;
+
+        const gradient = ctx.createRadialGradient(cx, cy, 0, cx, cy, n.radius);
+        gradient.addColorStop(0, `rgba(${n.color}, ${n.baseAlpha})`);
+        gradient.addColorStop(0.5, `rgba(${n.color}, ${n.baseAlpha * 0.35})`);
+        gradient.addColorStop(1, `rgba(${n.color}, 0)`);
+
+        ctx.fillStyle = gradient;
+        ctx.fillRect(0, 0, width, height);
+      }
+
+      ctx.restore();
+    };
 
     // Render static starfield if prefers-reduced-motion is active
     const renderStatic = () => {
       ctx.clearRect(0, 0, width, height);
       ctx.fillStyle = '#000103';
       ctx.fillRect(0, 0, width, height);
+
+      drawNebulae(0);
 
       for (let i = 0; i < stars.length; i++) {
         const s = stars[i];
@@ -170,6 +223,10 @@ export default function SpaceBackground() {
       // Dark background
       ctx.fillStyle = '#000103';
       ctx.fillRect(0, 0, width, height);
+
+      // Gas clouds drawn behind the stars, on the same canvas, so they
+      // blend seamlessly into the background and the starlight above them
+      drawNebulae(now * 0.001);
 
       const mousePixelX = (pointerX * 0.5 + 0.5) * width;
       const mousePixelY = (pointerY * 0.5 + 0.5) * height;
@@ -284,11 +341,11 @@ export default function SpaceBackground() {
     <div className="fixed inset-0 w-full h-full bg-[#000103] z-[0] overflow-hidden pointer-events-none">
       <canvas
         ref={canvasRef}
-        className="absolute inset-0 w-full h-full"
+        className="absolute inset-0 w-full h-full z-[1]"
       />
 
       {/* Dark overlay */}
-      <div className="absolute inset-0 bg-black/40" />
+      <div className="absolute inset-0 bg-black/40 z-[3]" />
     </div>
   );
 }
