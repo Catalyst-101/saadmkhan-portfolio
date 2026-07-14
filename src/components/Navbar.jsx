@@ -128,7 +128,7 @@ export default function Navbar() {
       {/* Mobile Drawer */}
       <div
         className={`md:hidden fixed inset-x-0 top-[72px] bg-[#0a0f1d]/95 backdrop-blur-lg border-b border-primary/20 shadow-2xl transition-all duration-300 ease-in-out origin-top overflow-hidden ${
-          isMobileMenuOpen ? 'max-h-[300px] opacity-100 py-6' : 'max-h-0 opacity-0 py-0'
+          isMobileMenuOpen ? 'max-h-[450px] opacity-100 py-6' : 'max-h-0 opacity-0 py-0'
         }`}
       >
         <div className="flex flex-col items-center gap-6">

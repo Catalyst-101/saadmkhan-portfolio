@@ -132,7 +132,14 @@ export default function Projects() {
   };
 
   return (
-    <section id="projects" className="py-24 max-w-[1280px] mx-auto px-6 md:px-16">
+    <motion.section
+      id="projects"
+      className="py-24 max-w-[1280px] mx-auto px-6 md:px-16"
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-100px" }}
+      transition={{ duration: 0.6 }}
+    >
       {/* Header Layout containing Title and Pagination buttons */}
       <div className="mb-12">
         <div className="flex justify-between items-center mb-4">
@@ -241,6 +248,6 @@ export default function Projects() {
           )}
         </AnimatePresence>
       </motion.div>
-    </section>
+    </motion.section>
   );
 }
