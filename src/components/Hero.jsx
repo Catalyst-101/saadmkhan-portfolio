@@ -99,7 +99,7 @@ export default function Hero() {
   return (
     <section
       id="home"
-      className="min-h-screen flex flex-col lg:flex-row justify-center items-center pt-32 pb-16 gap-12 max-w-[1280px] mx-auto px-6 md:px-16"
+      className="min-h-screen flex flex-col-reverse lg:flex-row justify-center items-center pt-32 pb-16 gap-12 max-w-[1280px] mx-auto px-6 md:px-16"
     >
       {/* Left side text content */}
       <motion.div

@@ -29,6 +29,7 @@
 html {
   scroll-behavior: smooth;
   background-color: #01030a;
+  touch-action: manipulation;
 }
 
 body {
@@ -37,6 +38,7 @@ body {
   color: #f1f5f9;
   font-family: 'Manrope', system-ui, -apple-system, sans-serif;
   overflow-x: hidden;
+  touch-action: manipulation;
 }
 
 /* Custom Animation Keyframes */

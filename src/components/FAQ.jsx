@@ -106,7 +106,7 @@ export default function FAQ() {
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="sticky top-28 order-1 lg:order-2"
+          className="lg:sticky lg:top-28 relative order-1 lg:order-2"
         >
           <h2 className="font-headline-lg text-4xl font-bold text-on-surface leading-tight">
             Technical{" "}

@@ -57,9 +57,26 @@ export default function App() {
     window.addEventListener('resize', handleScroll);
     handleScroll();
 
+    // Prevent pinch-to-zoom (multi-touch)
+    const handleTouchMove = (e) => {
+      if (e.touches.length > 1) {
+        e.preventDefault();
+      }
+    };
+
+    // Prevent Safari native gesture zoom
+    const handleGestureStart = (e) => {
+      e.preventDefault();
+    };
+
+    document.addEventListener('touchmove', handleTouchMove, { passive: false });
+    document.addEventListener('gesturestart', handleGestureStart, { passive: false });
+
     return () => {
       window.removeEventListener('scroll', handleScroll);
       window.removeEventListener('resize', handleScroll);
+      document.removeEventListener('touchmove', handleTouchMove);
+      document.removeEventListener('gesturestart', handleGestureStart);
     };
   }, []);
 
