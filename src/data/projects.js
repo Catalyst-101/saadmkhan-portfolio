@@ -4,7 +4,7 @@ export const projects = [
         title: "GeoPlot - Land Area Measurement System",
         description:
             "A MERN stack web application that enables users to measure land areas on an interactive map using Google Maps APIs. Features location search, polygon drawing, area calculation in multiple units, and secure plot management through a responsive interface.",
-        image: "./src/assets/images/geoplot.png",
+        image: "/images/geoplot.png",
         badge: "MERN Stack",
         tags: [
             "React",
@@ -23,7 +23,7 @@ export const projects = [
         title: "SportScope - Sports Analytics Platform",
         description:
             "A full-stack MERN sports analytics platform featuring interactive dashboards, player and match statistics, performance comparisons, and RESTful APIs for analyzing over 17,000 sports records.",
-        image: "./src/assets/images/sportscope.png",
+        image: "/images/sportscope.png",
         badge: "Full Stack",
         tags: [
             "React",
@@ -49,7 +49,7 @@ export const projects = [
         title: "Multilingual Polarization Detection System",
         description:
             "An AI-powered NLP system that detects polarized and biased language across multiple languages using the XLM-RoBERTa transformer model, enabling accurate multilingual text analysis and content classification.",
-        image: "./src/assets/images/polar.jfif",
+        image: "/images/polar.jfif",
         badge: "Artificial Intelligence",
         tags: [
             "Python",
@@ -76,7 +76,7 @@ export const projects = [
         title: "SMK-VCS - Simplified Version Control System",
         description:
             "A Java-based version control system inspired by Git, featuring repository initialization, commits, branching, merging, and file comparison through an interactive JavaFX interface powered by efficient data structures and algorithms.",
-        image: "./src/assets/images/smk.png",
+        image: "/images/smk.png",
         badge: "Desktop Application",
         tags: [
             "Java",
@@ -107,7 +107,7 @@ export const projects = [
         title: "Image Mosaic to Hyperspectral Imaging (HSI) Reconstruction",
         description:
             "A deep learning pipeline that reconstructs 61-band hyperspectral images from low-cost mosaic inputs using CNNs, enabling efficient hyperspectral imaging for computer vision and remote sensing applications.",
-        image: "./src/assets/images/mosiac.png",
+        image: "/images/mosiac.png",
         badge: "Deep Learning",
         tags: [
             "Python",
@@ -136,7 +136,7 @@ export const projects = [
         title: "Personal Portfolio #01",
         description:
             "A modern and responsive portfolio website built with Flutter Web to showcase my projects, technical skills, experience, and achievements through a clean and interactive user interface.",
-        image: "./src/assets/images/p1.png",
+        image: "/images/p1.png",
         badge: "Portfolio",
         tags: [
             "Flutter",
@@ -159,7 +159,7 @@ export const projects = [
         title: "BankChain - Modular Blockchain Banking System",
         description:
             "A decentralized banking platform powered by Ethereum smart contracts, enabling secure deposits, withdrawals, fund transfers, loan management, and card services. Developed the React frontend and integrated Ethers.js for seamless wallet connectivity and real-time blockchain interactions.",
-        image: "./src/assets/images/bankchain.png",
+        image: "/images/bankchain.png",
         badge: "Blockchain",
         tags: [
             "React",
@@ -183,7 +183,7 @@ export const projects = [
         title: "StayEase - Hostel Management System",
         description:
             "A JavaFX desktop application that digitizes hostel operations, including student registration, room allocation, staff management, complaints, and payment tracking using a MySQL database.",
-        image: "./src/assets/images/stayease.png",
+        image: "/images/stayease.png",
         badge: "Desktop Application",
         tags: [
             "Java",
@@ -207,7 +207,7 @@ export const projects = [
         title: "WardEase - Hospital Ward Management System",
         description:
             "An Android application that streamlines hospital operations with role-based portals for administrators, doctors, nurses, receptionists, and patients using Firebase as the backend.",
-        image: "./src/assets/images/wardease.png",
+        image: "/images/wardease.png",
         badge: "Android",
         tags: [
             "Java",
@@ -230,7 +230,7 @@ export const projects = [
         title: "BattleTanks",
         description:
             "A survival-style 2D tank game built with C++ and SFML featuring intelligent enemy AI, dynamic difficulty progression, projectile physics, and score-based gameplay.",
-        image: "./src/assets/images/battletanks.png",
+        image: "/images/battletanks.png",
         badge: "Game Development",
         tags: [
             "C++",
@@ -252,7 +252,7 @@ export const projects = [
         title: "Dental Clinic Website & Admin Management System",
         description:
             "A full-stack MERN application featuring a modern clinic website and secure admin dashboard for appointment booking, patient management, doctor scheduling, and website content management.",
-        image: "./src/assets/images/sami.png",
+        image: "/images/sami.png",
         badge: "MERN Stack",
         tags: [
             "React",
