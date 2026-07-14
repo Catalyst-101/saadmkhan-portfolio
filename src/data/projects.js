@@ -273,4 +273,29 @@ export const projects = [
         demo: "https://dentalelite.vercel.app/"
     },
 
+    {
+        id: 12,
+        title: "Personal Portfolio #02",
+        description:
+            "A modern space-themed developer portfolio built with React and Tailwind CSS, featuring immersive animations, interactive UI, smooth transitions, and a futuristic design to showcase my projects, skills, and experience.",
+        image: "/images/p2.png",
+        badge: "Portfolio",
+        tags: [
+            "React",
+            "Vite",
+            "Tailwind CSS",
+            "Framer Motion",
+            "JavaScript",
+            "Responsive Design",
+            "UI/UX",
+            "Frontend",
+            "Portfolio",
+            "Space Theme",
+            "Animations",
+            "Glassmorphism"
+        ],
+        github: "https://github.com/Catalyst-101",
+        demo: "https://saadmkhan-portfolio.vercel.app/"
+    },
+
 ]
