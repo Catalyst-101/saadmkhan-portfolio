@@ -7,8 +7,10 @@ export default function Navbar() {
 
   const navLinks = [
     { label: 'Home', href: '#home', id: 'home' },
+    { label: 'Services', href: '#services', id: 'services' },
     { label: 'About', href: '#about', id: 'about' },
     { label: 'Projects', href: '#projects', id: 'projects' },
+    { label: 'Testimonials', href: '#testimonials', id: 'testimonials' },
     { label: 'Contact', href: '#contact', id: 'contact' }
   ];
 
@@ -20,7 +22,7 @@ export default function Navbar() {
     window.addEventListener('scroll', handleScroll, { passive: true });
     
     // IntersectionObserver to highlight active nav link
-    const sections = ['home', 'about', 'projects', 'contact'];
+    const sections = ['home', 'about', 'services', 'projects', 'testimonials', 'contact'];
     const observers = [];
 
     sections.forEach((id) => {

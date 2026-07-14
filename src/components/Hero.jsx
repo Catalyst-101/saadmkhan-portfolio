@@ -108,6 +108,15 @@ export default function Hero() {
         transition={{ duration: 0.8, ease: 'easeOut' }}
         className="flex-1 max-w-2xl text-left"
       >
+        <div className="mb-4">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-xs font-semibold tracking-wide select-none backdrop-blur-sm">
+            <span className="relative flex h-2 w-2">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500 shadow-[0_0_10px_rgba(16,185,129,0.5)]"></span>
+            </span>
+            Available for Opportunities
+          </div>
+        </div>
         <span className="inline-block font-label-sm text-xs md:text-sm text-tertiary mb-3 tracking-[0.2em] uppercase select-none">
           Driven by Curiosity, Powered by Code
         </span>

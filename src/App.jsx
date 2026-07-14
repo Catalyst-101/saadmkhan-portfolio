@@ -5,7 +5,10 @@ import LoadingScreen from './components/LoadingScreen';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import About from './components/About';
+import Services from './components/Services';
+import FeaturedProjects from './components/FeaturedProjects';
 import Projects from './components/Projects';
+import Testimonials from './components/Testimonials';
 import FAQ from './components/FAQ';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
@@ -84,17 +87,29 @@ export default function App() {
 
           <SectionDivider d={0.5} />
 
-          <About />
+          <Services />
+
+          <SectionDivider d={1.5} />
+
+          <FeaturedProjects />
 
           <SectionDivider d={2.5} />
 
-          <Projects />
+          <About />
 
           <SectionDivider d={3.5} />
 
-          <FAQ />
+          <Projects />
 
           <SectionDivider d={4.5} />
+
+          <Testimonials />
+
+          <SectionDivider d={5.5} />
+
+          <FAQ />
+
+          <SectionDivider d={6.5} />
 
           <Contact />
         </main>
